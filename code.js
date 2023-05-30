@@ -10,4 +10,11 @@ function shoppingList() {
   return ["computer", "laptop", "headphone"];
 }
 
-module.exports = { gte, welcomeMessage, shoppingList };
+function getUser() {
+  return {
+    id: 1,
+    name: "salar",
+  };
+}
+
+module.exports = { gte, welcomeMessage, shoppingList, getUser };
