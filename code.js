@@ -17,4 +17,11 @@ function getUser() {
   };
 }
 
-module.exports = { gte, welcomeMessage, shoppingList, getUser };
+function login(password) {
+  if (password !== "1234") {
+    throw new Error("password is wrong!");
+  }
+  return { jwt: "token" };
+}
+
+module.exports = { gte, welcomeMessage, shoppingList, getUser, login };

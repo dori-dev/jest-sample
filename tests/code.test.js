@@ -1,4 +1,10 @@
-const { gte, welcomeMessage, shoppingList, getUser } = require("../code");
+const {
+  gte,
+  welcomeMessage,
+  shoppingList,
+  getUser,
+  login,
+} = require("../code");
 
 describe("gte", () => {
   it("should return true if 'a' is greater than 'b'", () => {
@@ -37,5 +43,17 @@ describe("getUser", () => {
     expect(result).toHaveProperty("id");
     expect(result).toHaveProperty("name");
     expect(result).toMatchObject({ id: 1 });
+  });
+});
+
+describe("login", () => {
+  it("should throw an error if password is wrong", () => {
+    expect(() => {
+      login("1111");
+    }).toThrow();
+  });
+  it("should return jwt if password is not wrong", () => {
+    const result = login("1234");
+    expect(result).toHaveProperty("jwt");
   });
 });
